@@ -2,11 +2,9 @@ package functionality;
 
 import gui.Image_Tile;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Polygon;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.nio.Buffer;
 import java.util.LinkedList;
 
 import sun.awt.image.ImageWatched.Link;
@@ -16,6 +14,10 @@ public class Selection {
 
 	public Polygon points;
 	public LinkedList<Dot> dots;
+
+	public SelectionMap map;
+	public Rectangle bounds;
+	public BufferedImage subimage;
 	
 	public Selection previous_selection;
 	public Selection next_selection;
@@ -33,6 +35,8 @@ public class Selection {
 	public void add_point(int x, int y){
 		dots.add(new Dot(x,y));
 		points.addPoint(x, y);
+		map = new SelectionMap(points);
+		bounds = points.getBounds();
 	}
 	
 	public void remove_last_point(){

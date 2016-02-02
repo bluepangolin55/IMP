@@ -1,17 +1,12 @@
 package tools;
 
-import file.Img;
-import functionality.Transformations;
 import gui_system.*;
 import main.IMP;
-import org.jtransforms.fft.FloatFFT_2D;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
-import java.awt.image.WritableRaster;
 
 public class Routine_Filter
 extends Routine{

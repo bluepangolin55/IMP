@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: IMP.java
+Class-Path: main.IMP
+Main-Class: main.IMP
 

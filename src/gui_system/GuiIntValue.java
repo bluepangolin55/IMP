@@ -8,6 +8,7 @@ public class GuiIntValue extends GuiValue{
 	
 	public double min_value;
 	public double max_value;
+	public double intervalLength;
 	public boolean locked;
 	public float float_value(){
 		return (float) double_value;
@@ -16,6 +17,7 @@ public class GuiIntValue extends GuiValue{
 	public GuiIntValue(double min_value, double max_value, double new_value){
 		this.min_value=min_value;
 		this.max_value=max_value;
+		this.intervalLength = max_value - min_value;
 		
 		if(!locked || new_value>min_value || new_value<max_value){
 			int_value=(int) new_value;

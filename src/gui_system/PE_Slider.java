@@ -60,10 +60,6 @@ implements Design_Preferences{
 		height_is_fixed=true;
 	}
 	
-	public int drawing_value() {
-		return (int) (value.getDouble()*drawing_factor);
-	}
-
 	public void setMaxValue(int i) {
 	}
 	
@@ -80,10 +76,14 @@ implements Design_Preferences{
 		message_client("value_changed");
 		send_message("paint_preview");
 }
-	
+
+	/** Uses the value given by the slider (0 to slider width)
+		to set the actual value of the slider. This is dependent
+		on the min/max of the value that the slider represents.
+	 */
 	public void set_value_with_slider(double slider_value) {
-		slider_value = slider_value/drawing_factor;
-		set_value(slider_value);
+		drawing_factor = value.intervalLength/slider_length;
+		set_value(value.min_value + slider_value*drawing_factor);
 		send_message(message);
 		message_client("value_changed");
 		send_message("paint_preview");
@@ -95,10 +95,10 @@ implements Design_Preferences{
 
 		top_space=(size.height-slider_width)/2;
 		slider_length=size.width-left_space-right_space;
-		drawing_factor=slider_length/(value.max_value-value.min_value);
+		drawing_factor = value.intervalLength/slider_length;
+		int slider_value = (int) ((value.getInt()-value.min_value)/drawing_factor);
 
 		if(is_hovered(IMP.main_panel.mouse_position)){
-
 			g.setColor(new Color(70,70,100));		//for slideredges
 			if(mouse_pressed)
 				g.setColor(color_second_contrast);
@@ -106,7 +106,7 @@ implements Design_Preferences{
 			g.setColor(color_contrast);				//for sliderforeground
 			if(mouse_pressed)
 				g.setColor(color_second_contrast);
-			g.fillRect(get_position().x+left_space,get_position().y+top_space,(drawing_value()), slider_width);
+			g.fillRect(get_position().x+left_space,get_position().y+top_space,(slider_value), slider_width);
 			
 }
 		else{
@@ -115,15 +115,7 @@ implements Design_Preferences{
 			g.setColor(color_contrast);				//for sliderforeground
 			if(mouse_pressed)
 				g.setColor(color_second_contrast);
-			g.fillRect(get_position().x+left_space,get_position().y+top_space,(drawing_value()), slider_width);
-//			g.setColor(new Color(50,50,70));		//for slideredges
-//			g.drawRect(get_position().x+left_space,get_position().y+top_space,slider_length,slider_width);
-			
-//			g.setColor(color_text_dark);
-//			if(mouse_pressed)
-//				g.setColor(color_text_bright);
-//			//text
-//			g.drawString("" + value.int_value, get_position().x+15, get_position().y+size.height/2+6);
+			g.fillRect(get_position().x+left_space,get_position().y+top_space,(slider_value), slider_width);
 		}
 		
 		//text

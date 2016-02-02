@@ -38,14 +38,9 @@ public class Routine_Blur
 		IMP.image_informant.inform_about_preview_changed();
 
 
-//		IMP.preview_image = new BufferedImage(IMP.opened_image.getWidth(),
-//				IMP.opened_image.getHeight(), BufferedImage.TYPE_BYTE_GRAY);
 		IMP.preview_image = new BufferedImage(IMP.opened_image.getWidth(),
 				IMP.opened_image.getHeight(), IMP.opened_image.getImage().getType());
 
-
-		//IMP.preview_image=new Img(IMP.opened_image.getWidth(),IMP.opened_image.getHeight(),1);
-//		original_reference=new Img(IMP.opened_image.getWidth(),IMP.opened_image.getHeight(),1);
 		paint_preview();
 	}
 

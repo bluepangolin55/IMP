@@ -86,8 +86,6 @@ extends Routine{
 
 			int width = IMP.preview_image.getWidth();
 			int height = IMP.preview_image.getHeight();
-			float widthRatio = (width + 0f) / (IMP.opened_image.getWidth()+0f);
-			float heightRatio = (height+0f) / (IMP.opened_image.getHeight()+0f);
 
 			int bufferSize = 10;
 			double[] buffer = new double[bufferSize];

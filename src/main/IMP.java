@@ -1,6 +1,6 @@
 package main;
 
-import java.awt.Dimension;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -28,7 +28,6 @@ public class IMP { // main function
 	// elements
 	static List<Img> loaded_images;
 	public static Img opened_image;
-	//public static Img preview_image;
 	public static BufferedImage preview_image;
 	public static BufferedImage preview_image2;
 	public static Menu menu;
@@ -118,12 +117,15 @@ public class IMP { // main function
 		routines.add(new Routine_Pattern_Caro());
 		routines.add(new Routine_Pattern_Triangle());
 		routines.add(new Routine_Brightness());
+		routines.add(new Routine_Contrast());
 		routines.add(new Routine_About_The_Program());
 		routines.add(new Routine_Open_Image());
 		routines.add(new Routine_Blur());
 		routines.add(new Routine_Filter());
 		routines.add(new Routine_Resize());
 		routines.add(new Routine_Segment());
+		routines.add(new Routine_EdgeDetection());
+		routines.add(new Routine_EdgeDetection2());
 	}
 
 	static void initialize_commands() {

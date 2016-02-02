@@ -1,33 +1,31 @@
 package tools;
 
+import functionality.Selection;
+import gui_system.*;
+import main.IMP;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.*;
 
-import functionality.Selection;
-import functionality.SelectionMap;
-import gui_system.Message;
-import main.IMP;
-import file.Img;
-import gui_system.GuiIntValue;
-import gui_system.PE_Apply_Abort;
-import gui_system.PE_Slider;
-
-public class Routine_Brightness 
+public class Routine_EdgeDetection
 extends Routine{
-	
-	// values 
+
+	// values
 	GuiIntValue v0;
 	GuiIntValue v1;
+	GuiBooleanValue sharpen;
 
-	public Routine_Brightness() {
+	public Routine_EdgeDetection() {
 		super();
-		set_name("Helligkeit");
+		set_name("Edge Detection");
 		category = "Bild/Farbe";
 		
 		v0 = new GuiIntValue(0,100,0);
 		v1 = new GuiIntValue(-255,255,0);
+		sharpen = new GuiBooleanValue(false);
 
+		add_gui_element(new PE_Check_Button("Sharpen before", sharpen, this));
 		add_gui_element(new PE_Slider("Multiplikative Helligkeit", v0, this, ""));
 		add_gui_element(new PE_Slider("Additive Helligkeit", v1, this, ""));
 		add_gui_element(new PE_Apply_Abort(this));
@@ -98,20 +96,83 @@ extends Routine{
 	Rectangle bounds;
 	Shape clip;
 
+	private int difference(int[] a, int[] b, int size){
+		assert(size < a.length && size < b.length);
+		int result = 0;
+		for(int i=0; i<size; i++){
+			result += Math.abs(a[i] - b[i]);
+		}
+		return result;
+	}
+
 	@Override
 	public void paint_preview() {
+		BufferedImage modified = new BufferedImage(
+				subimage.getWidth(), subimage.getHeight(), subimage.getType());
 
-		float c0 = v0.getInt()/10f;
-		float c1 = v1.getInt();
-		float[] scales = {
-				c0, c0, c0, 1
+		float[] data = {
+				0, 1/5f, 0,
+				1/5f, 1/5f, 1/5f,
+				0, 1/5f, 0
 		};
-		float[] offsets = {
-				c1, c1, c1, 0
-		};
-		BufferedImageOp edge = new RescaleOp(scales, offsets, null);
+//		float[] data = {
+//				0, -1, 0,
+//				-1, 4, -1,
+//				0, -1, 0
+//		};
 
-		BufferedImage modified = edge.filter(subimage, null);
+		Kernel kernel = new Kernel(3, 3, data);
+
+		BufferedImageOp edge = new ConvolveOp(kernel);
+		Raster from;
+		if(sharpen.getValue()) {
+			BufferedImage sharpened = new BufferedImage(
+					subimage.getWidth(), subimage.getHeight(), subimage.getType());
+			sharpened = edge.filter(subimage, null);
+			from = sharpened.getRaster();
+		}
+		else{
+			from = subimage.getRaster();
+		}
+
+		WritableRaster to = modified.getRaster();
+
+		int[] bufferL = new int[4];
+		int[] bufferR = new int[4];
+		int[] bufferU = new int[4];
+		int[] bufferD = new int[4];
+		int[] bufferWhite = {255, 255, 255, 255};
+		int[] bufferBlack = {0, 0, 0, 255};
+		int[] buffer = {0, 0, 0, 255};
+
+
+		float c = v0.getInt()/100f;
+		System.out.println(c);
+		int width = subimage.getWidth();
+		int height = subimage.getHeight();
+		for(int x=1; x<width-1; x++){
+			for(int y=1; y<height-1; y++) {
+				from.getPixel(x-1, y, bufferL);
+				from.getPixel(x+1, y, bufferR);
+				from.getPixel(x, y-1, bufferU);
+				from.getPixel(x, y+1, bufferD);
+				int diff = difference(bufferL, bufferR, 4)
+						+ difference(bufferU, bufferD, 4);
+				diff /= 3;
+				diff *= c;
+//				diff = Math.min(diff, 255);
+				buffer[0] = buffer[1] = buffer[2] = diff;
+				to.setPixel(x,y,buffer);
+//				if(diff > 10){
+//					to.setPixel(x,y,bufferWhite);
+//				}
+//				else{
+//					to.setPixel(x,y,bufferBlack);
+//				}
+
+			}
+		}
+
 		Graphics g = IMP.preview_image.getGraphics();
 		if(clip != null){
 			g.setClip(clip);

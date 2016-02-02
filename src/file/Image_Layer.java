@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
-import functionality.Transformations;
-
 public class Image_Layer extends Layer{
 
 	public BufferedImage image;

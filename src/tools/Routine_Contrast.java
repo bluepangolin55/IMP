@@ -1,30 +1,28 @@
 package tools;
 
+import functionality.Selection;
+import gui_system.GuiIntValue;
+import gui_system.Message;
+import gui_system.PE_Apply_Abort;
+import gui_system.PE_Slider;
+import main.IMP;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.*;
 
-import functionality.Selection;
-import functionality.SelectionMap;
-import gui_system.Message;
-import main.IMP;
-import file.Img;
-import gui_system.GuiIntValue;
-import gui_system.PE_Apply_Abort;
-import gui_system.PE_Slider;
-
-public class Routine_Brightness 
+public class Routine_Contrast
 extends Routine{
-	
-	// values 
+
+	// values
 	GuiIntValue v0;
 	GuiIntValue v1;
 
-	public Routine_Brightness() {
+	public Routine_Contrast() {
 		super();
-		set_name("Helligkeit");
+		set_name("Contrast");
 		category = "Bild/Farbe";
-		
+
 		v0 = new GuiIntValue(0,100,0);
 		v1 = new GuiIntValue(-255,255,0);
 
@@ -38,7 +36,7 @@ extends Routine{
 		super.activate();
 		IMP.image_informant.inform_about_preview_available(true);
 		IMP.image_informant.inform_about_preview_changed();
-		
+
 		//functionality
 		size_maxBrightness_ratio=(double) (IMP.opened_image.getWidth())/510;
 
@@ -72,11 +70,11 @@ extends Routine{
 	public void abort(){
 		super.abort();
 	}
-	
+
 	@Override
 	public void mouse_pressed(MouseEvent e){
 	}
-	
+
 	@Override
 	public void mouse_dragged(MouseEvent e){
 		if(e.getModifiers()!=8){
@@ -87,7 +85,7 @@ extends Routine{
 	}
 
 
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
+	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//------------------------------------------------------------------------------------------------------------------------------
 	//funcionality
 //		Function parameters that the user can change in the dialogue. The calculated  values are set to make the filter work in a default way.
@@ -109,14 +107,32 @@ extends Routine{
 		float[] offsets = {
 				c1, c1, c1, 0
 		};
-		BufferedImageOp edge = new RescaleOp(scales, offsets, null);
 
-		BufferedImage modified = edge.filter(subimage, null);
+		short[] threshold = new short[256];
+		short[] red = new short[256];
+		short[] green = new short[256];
+		short[] blue = new short[256];
+		for (short i = 0; i < 256; i++) {
+			red[i] = (short) (255 - i);
+			green[i] = 0;
+			blue[i] = 0;
+		}
+		short[][] data = new short[][] {
+				red, green, blue
+		};
+		LookupTable lookupTable = new ShortLookupTable(0, data);
+
+		BufferedImageOp op = new LookupOp(lookupTable, null);
+//		op = new RescaleOp(scales, offsets, null);
+
+		BufferedImage modified = op.filter(subimage, null);
+
 		Graphics g = IMP.preview_image.getGraphics();
 		if(clip != null){
 			g.setClip(clip);
 		}
 		g.drawImage(modified, bounds.x, bounds.y, bounds.width, bounds.height, null);
+//		IMP.preview_image = op.filter(IMP.preview_image, null);
 	}
 
 

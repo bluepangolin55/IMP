@@ -1,28 +1,26 @@
 package tools;
 
+import functionality.Selection;
+import gui_system.GuiIntValue;
+import gui_system.Message;
+import gui_system.PE_Apply_Abort;
+import gui_system.PE_Slider;
+import main.IMP;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.*;
 
-import functionality.Selection;
-import functionality.SelectionMap;
-import gui_system.Message;
-import main.IMP;
-import file.Img;
-import gui_system.GuiIntValue;
-import gui_system.PE_Apply_Abort;
-import gui_system.PE_Slider;
-
-public class Routine_Brightness 
+public class Routine_EdgeDetection2
 extends Routine{
-	
-	// values 
+
+	// values
 	GuiIntValue v0;
 	GuiIntValue v1;
 
-	public Routine_Brightness() {
+	public Routine_EdgeDetection2() {
 		super();
-		set_name("Helligkeit");
+		set_name("Edge Detection 2");
 		category = "Bild/Farbe";
 		
 		v0 = new GuiIntValue(0,100,0);
@@ -43,7 +41,8 @@ extends Routine{
 		size_maxBrightness_ratio=(double) (IMP.opened_image.getWidth())/510;
 
 		IMP.preview_image = new BufferedImage(IMP.opened_image.getWidth(),
-				IMP.opened_image.getHeight(), IMP.opened_image.getImage().getType());
+//				IMP.opened_image.getHeight(), IMP.opened_image.getImage().getType());
+				IMP.opened_image.getHeight(), BufferedImage.TYPE_INT_RGB);
 		Graphics g = IMP.preview_image.getGraphics();
 		g.drawImage(IMP.opened_image.getCompleteImage(), 0, 0, null);
 
@@ -98,20 +97,45 @@ extends Routine{
 	Rectangle bounds;
 	Shape clip;
 
+	private int difference(int[] a, int[] b, int size){
+		assert(size < a.length && size < b.length);
+		int result = 0;
+		for(int i=0; i<size; i++){
+			result += Math.abs(a[i] - b[i]);
+		}
+		return result;
+	}
+
 	@Override
 	public void paint_preview() {
 
-		float c0 = v0.getInt()/10f;
-		float c1 = v1.getInt();
-		float[] scales = {
-				c0, c0, c0, 1
+		int[] buffer = {0, 0, 0, 255};
+
+		float[] data2 = {
+			0, -1, 0,
+			-1, 4, -1,
+			0, -1, 1
 		};
-		float[] offsets = {
-				c1, c1, c1, 0
+
+		float[] data = {
+				0, 1, 0,
+				1, 0, -1,
+				0, -1, 0
 		};
-		BufferedImageOp edge = new RescaleOp(scales, offsets, null);
+//
+//		float[] data = {
+//				0, 1/5f, 0,
+//				1/5f, 1/5f, 1/5f,
+//				0, 1/5f, 0
+//		};
+
+		Kernel kernel = new Kernel(3, 3, data);
+
+
+		BufferedImageOp edge = new ConvolveOp(kernel);
 
 		BufferedImage modified = edge.filter(subimage, null);
+
 		Graphics g = IMP.preview_image.getGraphics();
 		if(clip != null){
 			g.setClip(clip);
