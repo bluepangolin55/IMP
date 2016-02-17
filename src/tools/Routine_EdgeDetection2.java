@@ -6,6 +6,7 @@ import gui_system.Message;
 import gui_system.PE_Apply_Abort;
 import gui_system.PE_Slider;
 import main.IMP;
+import functionality.Filters;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -20,7 +21,7 @@ extends Routine{
 
 	public Routine_EdgeDetection2() {
 		super();
-		set_name("Edge Detection 2");
+		set_name("Canny Edge Detection");
 		category = "Bild/Farbe";
 		
 		v0 = new GuiIntValue(0,100,0);
@@ -56,7 +57,8 @@ extends Routine{
 		else{
 			bounds = new Rectangle(0,0, IMP.preview_image.getWidth(), IMP.preview_image.getHeight());
 		}
-		subimage = IMP.opened_image.getImage().getSubimage(
+//		subimage = IMP.opened_image.getImage().getSubimage(
+		subimage = IMP.preview_image.getSubimage(
 				bounds.x, bounds.y,
 				bounds.width, bounds.height);
 
@@ -109,38 +111,37 @@ extends Routine{
 	@Override
 	public void paint_preview() {
 
-		int[] buffer = {0, 0, 0, 255};
+		BufferedImageOp sobelX = new ConvolveOp(Filters.SOBEL_X);
+		BufferedImageOp sobelY = new ConvolveOp(Filters.SOBEL_Y);
 
-		float[] data2 = {
-			0, -1, 0,
-			-1, 4, -1,
-			0, -1, 1
-		};
+		BufferedImage modified1 = sobelX.filter(subimage, null);
+		BufferedImage modified2 = sobelY.filter(subimage, null);
 
-		float[] data = {
-				0, 1, 0,
-				1, 0, -1,
-				0, -1, 0
-		};
-//
-//		float[] data = {
-//				0, 1/5f, 0,
-//				1/5f, 1/5f, 1/5f,
-//				0, 1/5f, 0
-//		};
+		int[] buffer1 = {0, 0, 0, 255};
+		int[] buffer2 = {0, 0, 0, 255};
 
-		Kernel kernel = new Kernel(3, 3, data);
-
-
-		BufferedImageOp edge = new ConvolveOp(kernel);
-
-		BufferedImage modified = edge.filter(subimage, null);
+		WritableRaster raster1 = modified1.getRaster();
+		Raster raster2 = modified2.getRaster();
+		int width = subimage.getWidth();
+		int height = subimage.getHeight();
+		for(int x=0; x<width; x++){
+			for(int y=0; y<height; y++) {
+				raster1.getPixel(x, y, buffer1);
+				raster2.getPixel(x, y, buffer2);
+				for(int i=0; i<3; i++){
+//					buffer1[i] = Math.min(buffer1[i] + buffer2[i], 255);
+					buffer1[i] = (int) Math.hypot(buffer1[i], buffer2[i]);
+//					buffer1[i] = Math.min(buffer2[i], 255);
+				}
+				raster1.setPixel(x,y,buffer1);
+			}
+		}
 
 		Graphics g = IMP.preview_image.getGraphics();
 		if(clip != null){
 			g.setClip(clip);
 		}
-		g.drawImage(modified, bounds.x, bounds.y, bounds.width, bounds.height, null);
+		g.drawImage(modified1, bounds.x, bounds.y, bounds.width, bounds.height, null);
 	}
 
 

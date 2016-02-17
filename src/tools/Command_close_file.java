@@ -6,8 +6,7 @@ public class Command_close_file
 extends Command{
 
 	public Command_close_file() {
-		super("Bild schliessen", "close_file");
-		category = "Datei";
+		super("Bild schliessen", "close_file", "Datei");
 		key_shortcut = 'w';
 	}
 	

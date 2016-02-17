@@ -36,6 +36,9 @@ implements Data_Access, Design_Preferences{
 	PE_Textfield location_bar_textfield;
 	GuiIntValue preview_size_value;
 	GuiIntValue scroll_value;
+
+	// previous gui state
+	private boolean sidepanelWasVisible;
 	
 	//Threads
 	Thumbnail_Reader thumbnail_reader;
@@ -50,14 +53,6 @@ implements Data_Access, Design_Preferences{
 		category = "Datei";
 		key_shortcut = 'o';
 		main_tile=new Tile(Tile.VERTICAL);
-		
-//		PE_Button2 open_button = new PE_Button2("Öffne das Bild", "open", this);
-//		open_button.set_height(40);
-//		open_button.height_is_fixed=true;
-//		open_button.set_width(300);
-//		open_button.width_is_fixed=true;
-//		open_button.borders_enabled=false;
-//		main_tile.add(open_button);
 		
 		Tile location_bar = new Tile(Tile.HORIZONTAL);
 		location_bar.set_height(30);
@@ -93,6 +88,9 @@ implements Data_Access, Design_Preferences{
 	@Override
 	public void activate(){
 		super.activate();
+		sidepanelWasVisible = IMP.mama.isComponentVisible(IMP.mama.SIDEPANEL);
+		System.out.println(sidepanelWasVisible);
+		IMP.mama.hideComponent(IMP.mama.SIDEPANEL);
 		scan_directory(directory);
 	}
 
@@ -101,12 +99,14 @@ implements Data_Access, Design_Preferences{
 		thumbnail_reader.interrupt();
         Input.scan_document(selected_image);
 		super.apply();
+		revertGuiChanges();
 		IMP.active_image_tile.view.filled_view();
 	}
 	
 	@Override
 	public void abort(){
 		super.abort();
+		revertGuiChanges();
 	}
 	
 	@Override
@@ -244,5 +244,14 @@ implements Data_Access, Design_Preferences{
 			return true;
 		else
 			return false;
+	}
+
+	private void revertGuiChanges(){
+		if(sidepanelWasVisible) {
+			IMP.mama.showComponent(IMP.mama.SIDEPANEL);
+		}
+		else{
+			IMP.mama.hideComponent(IMP.mama.SIDEPANEL);
+		}
 	}
 }

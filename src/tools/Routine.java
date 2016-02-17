@@ -9,14 +9,17 @@ import java.util.concurrent.RecursiveAction;
 import main.IMP;
 
 /**
- * A routine extends the Tool class. Routines should be used as one-time applicable functions. 
- * They do not appear in the toolbar like tools.
+ * A routine extends the Tool class.
+ * Routines can be used like tools but
+ * cand also be appied to the image.
+ * Tools do not appear in the toolbar.
 
  */
+
 public class Routine 
-extends Tool 
+extends Tool
 implements Appliable, Menulizable{
-	
+
 	public Routine() {
 		super();
 		get_menu().create("Anwenden","apply");

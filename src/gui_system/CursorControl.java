@@ -34,7 +34,7 @@ public class CursorControl {
 		case 3:
 		    brushCursor = Toolkit.getDefaultToolkit().createCustomCursor(
 			        cursorImg, new Point(0, 0), "selecting tool");
-		    IMP.main_window.setCursor(brushCursor);
+//		    IMP.main_window.setCursor(brushCursor);
 		    break;
 		}
 	}

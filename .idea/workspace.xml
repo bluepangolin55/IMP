@@ -7,43 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="365114c5-355f-423b-b6fd-1589a73da3ee" name="Default" comment="removed Fourier Transform. It used foreign libraries. I plan to implement it myself one day.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/functionality/SelectionMap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/functionality/Shape.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tools/Routine_Contrast.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tools/Routine_EdgeDetection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/functionality/ConvolusionFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/functionality/Transformations.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/misc/ImplCommonOps_DenseMatrix32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/misc/ImplCommonOps_Matrix32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/misc/TransposeAlgs32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/misc/UnrolledDeterminantFromMinor32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/misc/UnrolledInverseFromMinor32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/mult/MatrixMatrixMult32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/mult/MatrixMultProduct32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/mult/MatrixVectorMult32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/alg/dense/mult/VectorVectorMult32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/data/Complex32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/data/ComplexPolar32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/data/RowD1Matrix32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/ops/CommonOps32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/org/ejml/ops/ComplexMath32F.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/tools/Routine_Fourier.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IMP.jar" afterPath="$PROJECT_DIR$/IMP.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/IMP_jar.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/IMP_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/file/Image_Layer.java" afterPath="$PROJECT_DIR$/src/file/Image_Layer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/functionality/Selection.java" afterPath="$PROJECT_DIR$/src/functionality/Selection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui_system/GuiIntValue.java" afterPath="$PROJECT_DIR$/src/gui_system/GuiIntValue.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui_system/PE_Slider.java" afterPath="$PROJECT_DIR$/src/gui_system/PE_Slider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/backgroundThreads/Thumbnail_Reader.java" afterPath="$PROJECT_DIR$/src/backgroundThreads/Thumbnail_Reader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/functionality/Filters.java" afterPath="$PROJECT_DIR$/src/functionality/Filters.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Main_GUI_Panel.java" afterPath="$PROJECT_DIR$/src/gui/Main_GUI_Panel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Mama_Tile.java" afterPath="$PROJECT_DIR$/src/gui/Mama_Tile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui_system/CursorControl.java" afterPath="$PROJECT_DIR$/src/gui_system/CursorControl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui_system/Menulizable.java" afterPath="$PROJECT_DIR$/src/gui_system/Menulizable.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/IMP.java" afterPath="$PROJECT_DIR$/src/main/IMP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_Blur.java" afterPath="$PROJECT_DIR$/src/tools/Routine_Blur.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_Brightness.java" afterPath="$PROJECT_DIR$/src/tools/Routine_Brightness.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_Filter.java" afterPath="$PROJECT_DIR$/src/tools/Routine_Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_Segment.java" afterPath="$PROJECT_DIR$/src/tools/Routine_Segment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Command.java" afterPath="$PROJECT_DIR$/src/tools/Command.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Command_close_file.java" afterPath="$PROJECT_DIR$/src/tools/Command_close_file.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Command_exit.java" afterPath="$PROJECT_DIR$/src/tools/Command_exit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine.java" afterPath="$PROJECT_DIR$/src/tools/Routine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java" afterPath="$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Routine_Open_Image.java" afterPath="$PROJECT_DIR$/src/tools/Routine_Open_Image.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tools/Tool.java" afterPath="$PROJECT_DIR$/src/tools/Tool.java" />
     </list>
     <ignored path="IMP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,29 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Routine_Brightness.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tools/Routine_Brightness.java">
+      <file leaf-file-name="IMP.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/IMP.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1864#1865#0" expanded="false" />
-                <element signature="e#1884#1885#0" expanded="false" />
-                <element signature="e#1917#1918#0" expanded="false" />
-                <element signature="e#1937#1938#0" expanded="false" />
-                <element signature="e#3379#3380#0" expanded="false" />
-                <element signature="e#3401#3402#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Routine_Blur.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tools/Routine_Blur.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="91" column="6" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="6" />
+              <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,40 +55,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Routine_EdgeDetection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/tools/Routine_EdgeDetection.java">
+      <file leaf-file-name="Routine_Open_Image.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tools/Routine_Open_Image.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.41273585">
+              <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1858#1859#0" expanded="false" />
-                <element signature="e#1878#1879#0" expanded="false" />
-                <element signature="e#1911#1912#0" expanded="false" />
-                <element signature="e#1931#1932#0" expanded="false" />
-                <element signature="e#4941#4942#0" expanded="false" />
-                <element signature="e#4963#4964#0" expanded="false" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Routine_EdgeDetection2.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7092199">
-              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Image_Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/Image_Tile.java">
+      <file leaf-file-name="Mama_Tile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/Mama_Tile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="19" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-              <folding />
+              <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,17 +94,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/gui_system/GuiIntValue.java" />
-        <option value="$PROJECT_DIR$/src/gui_system/PE_Slider.java" />
-        <option value="$PROJECT_DIR$/src/functionality/Selection.java" />
-        <option value="$PROJECT_DIR$/src/gui/Image_Tile.java" />
-        <option value="$PROJECT_DIR$/src/tools/Routine_Brightness.java" />
-        <option value="$PROJECT_DIR$/src/tools/Routine_Contrast.java" />
+        <option value="$PROJECT_DIR$/src/gui_system/CursorControl.java" />
+        <option value="$PROJECT_DIR$/src/gui/Window2.java" />
+        <option value="$PROJECT_DIR$/src/gui/Window.java" />
+        <option value="$PROJECT_DIR$/src/gui/Main_GUI_Panel.java" />
+        <option value="$PROJECT_DIR$/src/backgroundThreads/Thumbnail_Reader.java" />
+        <option value="$PROJECT_DIR$/src/tools/Command.java" />
+        <option value="$PROJECT_DIR$/src/tools/Command_exit.java" />
+        <option value="$PROJECT_DIR$/src/tools/Command_close_file.java" />
         <option value="$PROJECT_DIR$/src/main/IMP.java" />
-        <option value="$PROJECT_DIR$/src/tools/Routine_EdgeDetection.java" />
-        <option value="$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java" />
-        <option value="$PROJECT_DIR$/src/tools/Routine_Filter.java" />
-        <option value="$PROJECT_DIR$/src/functionality/Transformations.java" />
+        <option value="$PROJECT_DIR$/src/gui/Mama_Tile.java" />
+        <option value="$PROJECT_DIR$/src/tools/Routine_Open_Image.java" />
       </list>
     </option>
   </component>
@@ -214,23 +160,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="IMP" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; 1.8 &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -275,12 +211,68 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui_system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IMP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NeuralNetworks2" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -289,6 +281,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="gui" />
       <recent name="tools" />
     </key>
   </component>
@@ -384,15 +377,15 @@
     <editor active="false" />
     <layout>
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49118942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32537314" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32686567" sideWeight="0.50311524" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32238805" sideWeight="0.49688473" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32686567" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32089552" sideWeight="0.49688473" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5088106" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -445,93 +438,99 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///usr/lib/jvm/java-8-jdk/src.zip!/java/awt/image/Raster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.039246466">
-          <caret line="1578" column="17" selection-start-line="1578" selection-start-column="17" selection-end-line="1578" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Routine_Brightness.java">
+    <entry file="file://$PROJECT_DIR$/src/tools/Tool.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="113" column="23" selection-start-line="113" selection-start-column="23" selection-end-line="113" selection-end-column="23" />
+          <caret line="44" column="8" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#1864#1865#0" expanded="false" />
-            <element signature="e#1884#1885#0" expanded="false" />
-            <element signature="e#1917#1918#0" expanded="false" />
-            <element signature="e#1937#1938#0" expanded="false" />
-            <element signature="e#3379#3380#0" expanded="false" />
-            <element signature="e#3401#3402#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Routine_EdgeDetection.java">
+    <entry file="file://$PROJECT_DIR$/src/backgroundThreads/Thumbnail_Reader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1858#1859#0" expanded="false" />
-            <element signature="e#1878#1879#0" expanded="false" />
-            <element signature="e#1911#1912#0" expanded="false" />
-            <element signature="e#1931#1932#0" expanded="false" />
-            <element signature="e#4941#4942#0" expanded="false" />
-            <element signature="e#4963#4964#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionality/Dot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05882353">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionality/Matrix.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5854801">
-          <caret line="91" column="3" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/functionality/MatrixInt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.620609">
-          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Routine_Filter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35058823">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Routine_Blur.java">
+    <entry file="file://$PROJECT_DIR$/src/gui/Image_Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="6" selection-start-line="91" selection-start-column="5" selection-end-line="91" selection-end-column="6" />
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui_system/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325527">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Routine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="3" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Command_exit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1077282">
+          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tools/Command_close_file.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9367682">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="128" column="69" selection-start-line="128" selection-start-column="69" selection-end-line="128" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/tools/Routine_EdgeDetection2.java">
+    <entry file="file://$PROJECT_DIR$/src/tools/Routine_Open_Image.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7092199">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.41273585">
+          <caret line="166" column="8" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Mama_Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

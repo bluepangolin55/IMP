@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -12,15 +11,14 @@ import java.util.concurrent.ForkJoinPool;
 
 import javax.imageio.ImageIO;
 import javax.script.ScriptException;
-import javax.swing.JFileChooser;
+import javax.swing.*;
 
+import gui.Main_GUI_Panel;
+import gui.Mama_Tile;
 import tools.*;
 import file.Img;
 import file.Input;
-import functionality.Action;
 import gui.Image_Tile;
-import gui.Main_GUI_Panel;
-import gui.Window;
 import gui_system.*;
 
 public class IMP { // main function
@@ -29,10 +27,8 @@ public class IMP { // main function
 	static List<Img> loaded_images;
 	public static Img opened_image;
 	public static BufferedImage preview_image;
-	public static BufferedImage preview_image2;
 	public static Menu menu;
 	public static Preferences preferences;
-	public static List<Action> actions;
 
 	// functionality
 	public static List<Tool> tools;
@@ -44,26 +40,20 @@ public class IMP { // main function
 	public static boolean routine_in_process;
 	public static ForkJoinPool thread_pool;
 
-	// Threads
-	static Thread scriptReader;
-
 	// Events
 	public static Image_Informant image_informant;
 	public static Global_Keys_Informant global_keys_informant;
 	public static Tool_Broadcaster action_informant;
 
-	// Interfaces
-	public static File_Load_Listener file_load_listener;
-
 	// GUI
-	public static Window main_window;
+	public static JFrame main_window;
 	public static Main_GUI_Panel main_panel;
+	public static Mama_Tile mama;
 	public static Image_Tile active_image_tile;
 	public static Tile tool_sidepanel;
 	public static Tile gadget_sidepanel;
 
-	public static void main(String[] args) throws ScriptException,
-	FileNotFoundException {
+	public static void main(String[] args) {
 		thread_pool = new ForkJoinPool();
 		// initiate event agents
 		image_informant = new Image_Informant();
@@ -79,13 +69,16 @@ public class IMP { // main function
 		initialize_commands();
 		preferences = new Preferences();
 
-		menu = new Menu();
 		// initiate user interface
+		menu = new Menu();
 		main_panel = new Main_GUI_Panel();
-		// main_window=new Window2(main_image_panel,preview_image_panel);
-		main_window = new Window(main_panel);
-		main_window.pack();
+		main_window = new JFrame();
+		main_window.add(main_panel);
+		main_window.addWindowListener(new WindowClosingAdapter());
 		main_window.setSize(1200, 600);
+		main_window.setLocation(100, 100);
+		main_window.setVisible(true);
+
 		tools.get(0).activate();
 		gadgets.get(0).activate();
 
@@ -94,7 +87,7 @@ public class IMP { // main function
 	}
 
 	static void initialize_tools() {
-		tools = new ArrayList<Tool>();
+		tools = new ArrayList<>();
 		tools.add(new Tool_Brush());
 		tools.add(new Tool_Polygon_Selection());
 		tools.add(new Tool_Selection());
@@ -103,13 +96,13 @@ public class IMP { // main function
 		tools.add(new Tool_2D());
 		active_tool = tools.get(0);
 
-		gadgets = new ArrayList<Gadget>();
+		gadgets = new ArrayList<>();
 		gadgets.add(new Gadget_Layers());
 		gadgets.add(new Gadget_Information());
 	}
 
 	static void initialize_routines() {
-		routines = new ArrayList<Tool>();
+		routines = new ArrayList<>();
 		routines.add(new Routine_New_Image());
 		routines.add(new Routine_Export_File());
 		routines.add(new Routine_Pythagoras_Tree());
@@ -132,6 +125,8 @@ public class IMP { // main function
 		commands = new ArrayList<Menulizable>();
 		commands.add(new Command_close_file());
 		commands.add(new Command_exit());
+		commands.add(new Command("toggle menubar", "toggle_menubar", "View"));
+		commands.add(new Command("toggle sidepanel", "toggle_sidepanel", "View"));
 		for (Tool r : routines) {
 			commands.add(r);
 		}
@@ -141,9 +136,16 @@ public class IMP { // main function
 	}
 
 	public static void apply_action(String action) {
-		if (action == "new_file") {
+		if (action.equals("new_file")) {
 			// sidepanel.upperPanel.load_routine(IMP.routines.get(0));
-		} else if (action == "open_file") {
+		}
+		else if (action.equals("toggle_menubar")) {
+			mama.toggleComponent(mama.MENUBAR);
+		}
+		else if (action.equals("toggle_sidepanel")) {
+			mama.toggleComponent(mama.SIDEPANEL);
+		}
+		else if (action.equals("open_file")) {
 			// Create a file chooser
 			JFileChooser fc = new JFileChooser();
 
@@ -151,9 +153,11 @@ public class IMP { // main function
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				File file = fc.getSelectedFile();
 				Input.scan_document(file);
-			} else {
 			}
-		} else if (action == "save_file") {
+			else {
+			}
+		}
+		else if (action.equals("save_file")) {
 
 			// Create a file chooser
 			JFileChooser fc = new JFileChooser();
@@ -166,11 +170,12 @@ public class IMP { // main function
 					ImageIO.write(IMP.opened_image.getImage(), "png", file);
 				} catch (IOException e) {
 				}
-			} else {
+			}
+			else {
 			}
 		}
 
-		else if (action == "export_as_bmp") {
+		else if (action.equals("export_as_bmp")) {
 			File file = new File(IMP.opened_image.path + "-"
 					+ IMP.opened_image.filename + ".bmp");
 			try {
@@ -180,7 +185,7 @@ public class IMP { // main function
 			}
 		}
 
-		else if (action == "export_as_gif") {
+		else if (action.equals("export_as_gif")) {
 			File file = new File(IMP.opened_image.path + "-"
 					+ IMP.opened_image.filename + ".gif");
 			try {
@@ -190,7 +195,7 @@ public class IMP { // main function
 			}
 		}
 
-		else if (action == "export_as_jpeg") {
+		else if (action.equals("export_as_jpeg")) {
 			File file = new File(IMP.opened_image.path + "-"
 					+ IMP.opened_image.filename + ".jpg");
 			try {
@@ -200,7 +205,7 @@ public class IMP { // main function
 			}
 		}
 
-		else if (action == "export_as_png") {
+		else if (action.equals("export_as_png")) {
 			File file = new File(IMP.opened_image.path + "-"
 					+ IMP.opened_image.filename + ".png");
 			try {
@@ -210,52 +215,25 @@ public class IMP { // main function
 			}
 		}
 
-		else if (action == "close_file") {
+		else if (action.equals("close_file")) {
 			file.Img.fileMade = false;
 			IMP.opened_image = null;
 			// IMP.main_image_panel.load_image(null);
 			IMP.image_informant.inform_about_new_image(null);
 			IMP.menu.refresh_menu();
 		}
-		if (action == "show_sidepanel") {
-			if (tool_sidepanel.visible == true)
+		if (action.equals("show_sidepanel")) {
+			if (tool_sidepanel.visible) {
 				tool_sidepanel.hide();
-			else
+			}
+			else {
 				tool_sidepanel.visible = true;
-			System.out.println("dadf");
-		}
-		// view
-		// else if(action=="view_zoom_in"){
-		// imagePanelL.view.zoom_in();
-		// imagePanelL.view.centered_view();
-		// }
-		// else if(action=="view_zoom_out"){
-		// imagePanelL.view.zoom_out();
-		// imagePanelL.view.centered_view();
-		// }
-		// else if(action=="view_real_size"){
-		// imagePanelL.view.real_view();
-		// }
-		// else if(action=="view_stretched"){
-		// imagePanelL.view.filled_view();
-		// }
-		else if (action == ("exit")) {
-			System.out.println("exiting");
-			main_window.dispose();
-		} else if (action == "1") {
-
-		}
-	}
-
-	public static Menulizable get_command_by_name(String name) {
-		Menulizable result = null;
-		for (Menulizable c : commands) {
-			if (c.get_name().equals(name)) {
-				result = c;
-				break;
 			}
 		}
-		return result;
+		else if (action.equals("exit")) {
+			System.out.println("exiting");
+			main_window.dispose();
+		}
 	}
 
 	public static Menulizable get_command_by_key(char key) {

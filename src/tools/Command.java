@@ -3,7 +3,7 @@ package tools;
 import gui_system.Menulizable;
 import main.IMP;
 
-public abstract class Command 
+public class Command
 implements Appliable, Menulizable{
 	
 	public String name;
@@ -13,9 +13,10 @@ implements Appliable, Menulizable{
 	public boolean needs_open_image;
 	public boolean works_during_other_routines;
 	
-	public Command(String name, String action) {
+	public Command(String name, String action, String category) {
 		this.name = name;
 		this.action = action;
+		this.category = category;
 	}
 	
 	@Override
@@ -45,11 +46,10 @@ implements Appliable, Menulizable{
 		return name;
 	}
 	
-	@Override
 	public String get_action() {
 		return action;
 	}
-	
+
 	@Override
 	public String get_category() {
 		return category;

@@ -5,8 +5,7 @@ import main.IMP;
 public class Command_exit extends Command {
 
 	public Command_exit() {
-		super("Programm beenden", "exit");
-		category = "Datei";
+		super("Programm beenden", "exit", "Datei");
 		key_shortcut = 'q';
 		needs_open_image = false;
 	}

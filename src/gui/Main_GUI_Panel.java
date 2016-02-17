@@ -21,15 +21,15 @@ import main.IMP;
 import gui_system.Context_Menu;
 import gui_system.Tile;
 
-public class Main_GUI_Panel 
-extends JPanel 
+public class Main_GUI_Panel
+extends JPanel
 implements ActionListener, KeyListener, MouseListener, MouseWheelListener, MouseMotionListener, ComponentListener
 {
 	private static final long serialVersionUID = 1L;
 
-	
+
 	public boolean preview=false;
-	
+
 	//Mouseposition
 	public Point mouse_position=new Point();
 	protected boolean mouse_dragged=false;
@@ -37,13 +37,13 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 	private boolean control_is_pressed;
 	private boolean alt_is_pressed;
 	private boolean space_is_pressed;
-	
+
     //right-click menu
 	public Context_Menu context_menu;
-	
+
 	private Tile mama_panel;
-	
-	
+
+
 	public Main_GUI_Panel(){
 		addKeyListener(this);
 		addMouseListener(this);
@@ -51,32 +51,32 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 		addMouseWheelListener(this);
 		addComponentListener(this);
 		setBackground(Color.DARK_GRAY);
-        
+
 		//hud elements
 		mama_panel=new Mama_Tile(Tile.VERTICAL, new Dimension(1600,800));
-		
+
 		//context menu
 		context_menu=new Context_Menu(IMP.menu.main_menu);
         this.requestFocus();
         repaint();
 	}
-	
+
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		mama_panel.paint(g);
-		
+
 		g.setClip(0,0,this.getWidth(),this.getHeight());
 		if(context_menu.enabled)
 			context_menu.paint(g);
 		IMP.active_tool.hud_panel.paint(g);
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e){
 		String cmd = e.getActionCommand();
 	}
-	
+
 	@Override
 	public void keyTyped(KeyEvent e) {
 		if(context_menu.enabled)
@@ -87,7 +87,7 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 			mama_panel.key_typed(e);
 		repaint();
 	}
-	
+
 	@Override
 	public void keyPressed(KeyEvent e) {
 		IMP.global_keys_informant.inform_about_key_pressed(e);
@@ -104,15 +104,15 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 					IMP.active_tool.hud_panel.enabled=false;
 				else
 					IMP.active_tool.hud_panel.enabled=true;
-				
+
 				space_is_pressed=true;
 			}
-			
+
 			mama_panel.key_pressed(e);
 		}
 		repaint();
 	}
-	
+
 	@Override
 	public void keyReleased(KeyEvent e) {
 		IMP.global_keys_informant.inform_about_key_released(e);
@@ -147,12 +147,12 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 		}
 		else
 			mama_panel.mouse_moved(e);
-		
+
 		mouse_position=e.getPoint();
 		repaint();
 	}
-	
-	
+
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		this.requestFocus();
@@ -167,14 +167,14 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 			mama_panel.mouse_pressed(e);
 		repaint();
 	}
-	
+
 	@Override
 	public void mouseDragged(MouseEvent e) {
 
 		mouse_dragged=true;
 		if(view_button_pressed()){		//the control button shouldn't have anything to do with tools
-		}	
-		
+		}
+
 		if(context_menu.enabled)
 			context_menu.mouse_dragged(e);
 		else if((IMP.active_tool.hud_panel.enabled && IMP.active_tool.hud_panel.is_hovered(e)) || IMP.active_tool.hud_panel.pressed){
@@ -183,7 +183,7 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 		else
 			mama_panel.mouse_dragged(e);
 		repaint();
-		
+
 		mouse_position=e.getPoint();
 	}
 
@@ -196,17 +196,17 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 		}
 		else
 			mama_panel.mouse_released(e);
-		
+
 		mouse_dragged=false;
 		repaint();
 	}
-		
+
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		mama_panel.mouse_wheel(e);
 		repaint();
 	}
-	
+
 	@Override
 	public void mouseEntered(MouseEvent arg0) {
 		alt_is_pressed=false;
@@ -217,12 +217,12 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 	public void mouseExited(MouseEvent arg0) {
 		repaint();
 	}
-	
+
 	//key mappings
 	private boolean view_button_pressed(){
 		return alt_is_pressed;
 	}
-	
+
 	private boolean menu_button_pressed(){
 		return space_is_pressed;
 	}
@@ -237,7 +237,7 @@ implements ActionListener, KeyListener, MouseListener, MouseWheelListener, Mouse
 	@Override
 	public void componentMoved(ComponentEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

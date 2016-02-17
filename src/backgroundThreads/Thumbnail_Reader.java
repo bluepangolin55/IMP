@@ -33,6 +33,9 @@ extends Thread implements ImageObserver{
 		    double ratio;
 			try {
 				source=ImageIO.read(file_tiles.get(i).image_file);
+				if(source == null){
+					continue;
+				}
 				file_tiles.get(i).image_file.length();
 				ratio=1+source.getWidth()*source.getHeight()/1000000;
 				

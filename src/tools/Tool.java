@@ -6,8 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.RecursiveAction;
 
 import main.IMP;
@@ -16,9 +14,7 @@ import gui.Design_Preferences;
 import gui.Image_Tile;
 import gui_system.Floating_Panel;
 import gui_system.GuiClient;
-import gui_system.GuiValue;
 import gui_system.Menulizable;
-import gui_system.GuiIntValue;
 import gui_system.PE_Tool_Titlebar;
 import gui_system.Tile;
 
@@ -27,7 +23,6 @@ public abstract class Tool
 implements Design_Preferences, Menulizable, GuiClient{
 	
 	protected String name;
-	private String action;
 	protected String category;
 	protected char key_shortcut;
 	
@@ -47,7 +42,6 @@ implements Design_Preferences, Menulizable, GuiClient{
 	public Tile sidepanel;
 	
 public Tool() {
-	action = "use_tool";
 	IMP.action_informant.add_client(this);
 	set_menu(new Menuelement("menu",null));
 	hud_panel=new Floating_Panel(this);
@@ -134,12 +128,6 @@ public void activate(){
 		
 	}
 
-	@Override
-	public String get_action() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	public String get_category(){
 		return category;
 	}
